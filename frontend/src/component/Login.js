@@ -138,7 +138,7 @@ const Login = (props) => {
             onClick={() => handleLogin()}
             className={classes.submitButton}
           >
-            Login
+            Se connecter
           </Button>
         </Grid>
       </Grid>

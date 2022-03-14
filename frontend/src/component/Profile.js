@@ -41,7 +41,7 @@ const MultifieldInput = (props) => {
         <Grid item container className={classes.inputBox} key={key}>
           <Grid item xs={6}>
             <TextField
-              label={`Institution Name #${key + 1}`}
+              label={`Etablissement #${key + 1}`}
               value={education[key].institutionName}
               onChange={(event) => {
                 const newEdu = [...education];
@@ -54,7 +54,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="Start Year"
+              label="Date début"
               value={obj.startYear}
               variant="outlined"
               type="number"
@@ -67,7 +67,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="End Year"
+              label="Date fin"
               value={obj.endYear}
               variant="outlined"
               type="number"
@@ -96,7 +96,7 @@ const MultifieldInput = (props) => {
           }
           className={classes.inputBox}
         >
-          Add another institution details
+          Ajouter un établissement
         </Button>
       </Grid>
     </>
@@ -223,9 +223,9 @@ const Profile = (props) => {
         alignItems="center"
         style={{ padding: "30px", minHeight: "93vh" }}
       >
-        <Grid item>
-          <Typography variant="h2">Profile</Typography>
-        </Grid>
+        {/* <Grid item>
+          <Typography variant="h2">Profil</Typography>
+        </Grid> */}
         <Grid item xs>
           <Paper
             style={{
@@ -240,7 +240,7 @@ const Profile = (props) => {
             <Grid container direction="column" alignItems="stretch" spacing={3}>
               <Grid item>
                 <TextField
-                  label="Name"
+                  label="Nom de l'étudiant"
                   value={profileDetails.name}
                   onChange={(event) => handleInput("name", event.target.value)}
                   className={classes.inputBox}
@@ -255,9 +255,9 @@ const Profile = (props) => {
               <Grid item>
                 <ChipInput
                   className={classes.inputBox}
-                  label="Skills"
+                  label="Atouts"
                   variant="outlined"
-                  helperText="Press enter to add skills"
+                  helperText="Presser entrer pour enregistrer"
                   value={profileDetails.skills}
                   onAdd={(chip) =>
                     setProfileDetails({
@@ -303,7 +303,7 @@ const Profile = (props) => {
               style={{ padding: "10px 50px", marginTop: "30px" }}
               onClick={() => handleUpdate()}
             >
-              Update Details
+              Modifer
             </Button>
           </Paper>
         </Grid>

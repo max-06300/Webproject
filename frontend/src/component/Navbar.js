@@ -45,19 +45,19 @@ const Navbar = (props) => {
                 Home
               </Button> */}
               <Button color="inherit" onClick={() => handleClick("/addjob")}>
-                Add Jobs
+                Ajouter une offre
               </Button>
               <Button color="inherit" onClick={() => handleClick("/myjobs")}>
-                My Jobs
+                Mes offres
               </Button>
               <Button color="inherit" onClick={() => handleClick("/employees")}>
-                Employees
+                Demandes
               </Button>
               <Button color="inherit" onClick={() => handleClick("/profile")}>
-                Profile
+                Profil
               </Button>
               <Button color="inherit" onClick={() => handleClick("/logout")}>
-                Logout
+                Se déconnecter
               </Button>
             </>
           ) : (
@@ -69,23 +69,23 @@ const Navbar = (props) => {
                 color="inherit"
                 onClick={() => handleClick("/applications")}
               >
-                Applications
+                Offres
               </Button>
               <Button color="inherit" onClick={() => handleClick("/profile")}>
-                Profile
+                Profil
               </Button>
               <Button color="inherit" onClick={() => handleClick("/logout")}>
-                Log out
+                Se déconnecter
               </Button>
             </>
           )
         ) : (
           <>
             <Button color="inherit" onClick={() => handleClick("/login")}>
-              Login
+              Se connecter
             </Button>
             <Button color="inherit" onClick={() => handleClick("/signup")}>
-              Signup
+              S'inscrire
             </Button>
           </>
         )}

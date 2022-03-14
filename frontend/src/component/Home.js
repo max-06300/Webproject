@@ -107,17 +107,18 @@ const JobTile = (props) => {
           <Grid item>
             <Typography variant="h5">{job.title}</Typography>
           </Grid>
+          <Grid item>{job.recruiter.name}</Grid>
           <Grid item>
             <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
           </Grid>
-          <Grid item>Role : {job.jobType}</Grid>
-          <Grid item>Salary : € {job.salary} per month</Grid>
+          <Grid item>Type d'offre : {job.jobType}</Grid>
+          <Grid item>Salaire :  {job.salary} € par mois</Grid>
           <Grid item>
-            Duration :{" "}
+            Durée :{" "}
             {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
           </Grid>
-          <Grid item>Posted By : {job.recruiter.name}</Grid>
-          <Grid item>Application Deadline : {deadline}</Grid>
+          
+          <Grid item>Date limite : {deadline}</Grid>
 
           <Grid item>
             {job.skillsets.map((skill) => (
@@ -135,7 +136,7 @@ const JobTile = (props) => {
             }}
             disabled={userType() === "recruiter"}
           >
-            Apply
+            Postuler
           </Button>
         </Grid>
       </Grid>
@@ -152,7 +153,7 @@ const JobTile = (props) => {
           }}
         >
           <TextField
-            label="Write SOP (upto 250 words)"
+            label="Ecrire une déscription..."
             multiline
             rows={8}
             style={{ width: "100%", marginBottom: "30px" }}
@@ -174,7 +175,7 @@ const JobTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => handleApply()}
           >
-            Submit
+            Postuler
           </Button>
         </Paper>
       </Modal>
@@ -411,7 +412,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="duration">
-                    <Typography>Duration</Typography>
+                    <Typography>Durée</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -467,7 +468,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Avis</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -644,7 +645,7 @@ const Home = (props) => {
           </Grid> */}
           <Grid item xs>
             <TextField
-              label="Search Jobs"
+              label="Rechercher..."
               value={searchOptions.query}
               onChange={(event) =>
                 setSearchOptions({
@@ -672,7 +673,7 @@ const Home = (props) => {
           </Grid>
           <Grid item>
             <IconButton onClick={() => setFilterOpen(true)}>
-              Filters
+              Filtrer
             </IconButton>
           </Grid>
         </Grid>
@@ -691,7 +692,7 @@ const Home = (props) => {
             })
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No jobs found
+              Pas d'offres trouvées
             </Typography>
           )}
         </Grid>

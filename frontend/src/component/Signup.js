@@ -53,7 +53,7 @@ const MultifieldInput = (props) => {
         >
           <Grid item xs={6}>
             <TextField
-              label={`Institution Name #${key + 1}`}
+              label={`Etablissement #${key + 1}`}
               value={education[key].institutionName}
               onChange={(event) => {
                 const newEdu = [...education];
@@ -65,7 +65,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="Start Year"
+              label="de (année)"
               value={obj.startYear}
               variant="outlined"
               type="number"
@@ -78,7 +78,7 @@ const MultifieldInput = (props) => {
           </Grid>
           <Grid item xs={3}>
             <TextField
-              label="End Year"
+              label="à (année)"
               value={obj.endYear}
               variant="outlined"
               type="number"
@@ -107,7 +107,7 @@ const MultifieldInput = (props) => {
           }
           className={classes.inputBox}
         >
-          Add another institution details
+          Ajouter un établissement
         </Button>
       </Grid>
     </>
@@ -333,7 +333,7 @@ const Login = (props) => {
         <Grid item>
           <TextField
             select
-            label="Category"
+            label="Catégorie"
             variant="outlined"
             className={classes.inputBox}
             value={signupDetails.type}
@@ -341,13 +341,13 @@ const Login = (props) => {
               handleInput("type", event.target.value);
             }}
           >
-            <MenuItem value="applicant">Applicant</MenuItem>
-            <MenuItem value="recruiter">Recruiter</MenuItem>
+            <MenuItem value="applicant">Etudiant</MenuItem>
+            <MenuItem value="recruiter">Entreprise</MenuItem>
           </TextField>
         </Grid>
         <Grid item>
           <TextField
-            label="Name"
+            label="Nom"
             value={signupDetails.name}
             onChange={(event) => handleInput("name", event.target.value)}
             className={classes.inputBox}
@@ -355,7 +355,7 @@ const Login = (props) => {
             helperText={inputErrorHandler.name.message}
             onBlur={(event) => {
               if (event.target.value === "") {
-                handleInputError("name", true, "Name is required");
+                handleInputError("name", true, "Nom requis");
               } else {
                 handleInputError("name", false, "");
               }
@@ -376,7 +376,7 @@ const Login = (props) => {
         </Grid>
         <Grid item>
           <PasswordInput
-            label="Password"
+            label="Mot de passe"
             value={signupDetails.password}
             onChange={(event) => handleInput("password", event.target.value)}
             className={classes.inputBox}
@@ -384,7 +384,7 @@ const Login = (props) => {
             helperText={inputErrorHandler.password.message}
             onBlur={(event) => {
               if (event.target.value === "") {
-                handleInputError("password", true, "Password is required");
+                handleInputError("password", true, "Mot de passe requis");
               } else {
                 handleInputError("password", false, "");
               }
@@ -400,9 +400,9 @@ const Login = (props) => {
             <Grid item>
               <ChipInput
                 className={classes.inputBox}
-                label="Skills"
+                label="Atouts"
                 variant="outlined"
-                helperText="Press enter to add skills"
+                helperText="Presser entrer pour ajouter"
                 onChange={(chips) =>
                   setSignupDetails({ ...signupDetails, skills: chips })
                 }
@@ -448,7 +448,7 @@ const Login = (props) => {
           <>
             <Grid item style={{ width: "100%" }}>
               <TextField
-                label="Bio (upto 250 words)"
+                label="Description (min. 250 mots)"
                 multiline
                 rows={8}
                 style={{ width: "100%" }}
@@ -486,7 +486,7 @@ const Login = (props) => {
             }}
             className={classes.submitButton}
           >
-            Signup
+            Creer mon compte
           </Button>
         </Grid>
       </Grid>

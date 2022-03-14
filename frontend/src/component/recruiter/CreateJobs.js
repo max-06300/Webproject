@@ -35,8 +35,8 @@ const CreateJobs = (props) => {
 
   const [jobDetails, setJobDetails] = useState({
     title: "",
-    maxApplicants: 100,
-    maxPositions: 30,
+    maxApplicants: 5,
+    maxPositions: 5,
     deadline: new Date(new Date().getTime() + 10 * 24 * 60 * 60 * 1000)
       .toISOString()
       .substr(0, 16),
@@ -99,9 +99,9 @@ const CreateJobs = (props) => {
         alignItems="center"
         style={{ padding: "30px", minHeight: "93vh", width: "" }}
       >
-        <Grid item>
+        {/* <Grid item>
           <Typography variant="h2">Add Job</Typography>
-        </Grid>
+        </Grid> */}
         <Grid item container xs direction="column" justify="center">
           <Grid item>
             <Paper
@@ -125,7 +125,7 @@ const CreateJobs = (props) => {
                     label="Title"
                     value={jobDetails.title}
                     onChange={(event) =>
-                      handleInput("title", event.target.value)
+                      handleInput("Poste de l'offre", event.target.value)
                     }
                     variant="outlined"
                     fullWidth

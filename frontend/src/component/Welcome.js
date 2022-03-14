@@ -11,7 +11,7 @@ const Welcome = (props) => {
       style={{ padding: "30px", minHeight: "93vh" }}
     >
       <Grid item>
-        <Typography variant="h5">Welcome to Job Portal</Typography>
+        <Typography variant="h5">Bienvenue sur CesiJobs ! </Typography>
       </Grid>
     </Grid>
   );
