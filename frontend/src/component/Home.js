@@ -115,7 +115,7 @@ const JobTile = (props) => {
           <Grid item>Salaire :  {job.salary} € par mois</Grid>
           <Grid item>
             Durée :{" "}
-            {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
+            {job.duration !== 0 ? `${job.duration} mois` : `Flexible`}
           </Grid>
           
           <Grid item>Date limite : {deadline}</Grid>
@@ -131,6 +131,10 @@ const JobTile = (props) => {
             variant="contained"
             color="primary"
             className={classes.button}
+            style={{
+              marginTop: "25%",
+              height: "20%"
+            }}
             onClick={() => {
               setOpen(true);
             }}
@@ -198,7 +202,7 @@ const FilterPopup = (props) => {
         <Grid container direction="column" alignItems="center" spacing={3}>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Job Type
+              Type d'offre
             </Grid>
             <Grid
               container
@@ -271,7 +275,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Salary
+              Salaire
             </Grid>
             <Grid item xs={9}>
               <Slider
@@ -295,7 +299,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Duration
+              Durée
             </Grid>
             <Grid item xs={9}>
               <TextField
@@ -311,7 +315,7 @@ const FilterPopup = (props) => {
                   })
                 }
               >
-                <MenuItem value="0">All</MenuItem>
+                <MenuItem value="0">Tous</MenuItem>
                 <MenuItem value="1">1</MenuItem>
                 <MenuItem value="2">2</MenuItem>
                 <MenuItem value="3">3</MenuItem>
@@ -356,7 +360,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="salary">
-                    <Typography>Salary</Typography>
+                    <Typography>Salaire</Typography>
                   </label>
                 </Grid>
                 <Grid item>

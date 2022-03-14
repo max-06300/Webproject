@@ -555,11 +555,11 @@ const ApplicationTile = (props) => {
               readOnly
             />
           </Grid>
-          <Grid item>Job Title: {application.job.title}</Grid>
-          <Grid item>Role: {application.job.jobType}</Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Métier: {application.job.title}</Grid>
+          <Grid item>Type d'offre: {application.job.jobType}</Grid>
+          <Grid item>Date de demande: {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            SOP: {application.sop !== "" ? application.sop : "Not Submitted"}
+            Description: {application.sop !== "" ? application.sop : "Not Submitted"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -568,7 +568,7 @@ const ApplicationTile = (props) => {
           </Grid>
         </Grid>
         <Grid item container direction="column" xs={3}>
-          <Grid item>
+          {/* <Grid item>
             <Button
               variant="contained"
               className={classes.statusBlock}
@@ -577,8 +577,8 @@ const ApplicationTile = (props) => {
             >
               Download Resume
             </Button>
-          </Grid>
-          <Grid item container xs>
+          </Grid> */}
+          <Grid item >
             {/* {buttonSet[application.status]} */}
             <Button
               variant="contained"
@@ -591,7 +591,7 @@ const ApplicationTile = (props) => {
                 setOpenEndJob(true);
               }}
             >
-              End Job
+              Fin
             </Button>
           </Grid>
           <Grid item>
@@ -603,7 +603,7 @@ const ApplicationTile = (props) => {
                 setOpen(true);
               }}
             >
-              Rate Applicant
+              Noter 
             </Button>
           </Grid>
         </Grid>
@@ -634,7 +634,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => changeRating()}
           >
-            Submit
+            Noter
           </Button>
         </Paper>
       </Modal>
@@ -655,7 +655,7 @@ const ApplicationTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Are you sure?
+            Etes-vous sûr?
           </Typography>
           <Grid container justify="center" spacing={5}>
             <Grid item>
@@ -667,7 +667,7 @@ const ApplicationTile = (props) => {
                   updateStatus("finished");
                 }}
               >
-                Yes
+                Oui
               </Button>
             </Grid>
             <Grid item>
@@ -677,7 +677,7 @@ const ApplicationTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleCloseEndJob()}
               >
-                Cancel
+                Fermer
               </Button>
             </Grid>
           </Grid>
@@ -775,14 +775,14 @@ const AcceptedApplicants = (props) => {
         alignItems="center"
         style={{ padding: "30px", minHeight: "93vh" }}
       >
-        <Grid item>
+        {/* <Grid item>
           <Typography variant="h2">Employees</Typography>
-        </Grid>
-        <Grid item>
+        </Grid> */}
+        {/* <Grid item>
           <IconButton onClick={() => setFilterOpen(true)}>
             <FilterListIcon />
           </IconButton>
-        </Grid>
+        </Grid> */}
         <Grid
           container
           item
@@ -801,7 +801,7 @@ const AcceptedApplicants = (props) => {
             ))
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No Applications Found
+              Aucun employé
             </Typography>
           )}
         </Grid>

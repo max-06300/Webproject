@@ -136,13 +136,13 @@ const ApplicationTile = (props) => {
           <Grid item>
             <Typography variant="h5">{application.job.title}</Typography>
           </Grid>
-          <Grid item>Posted By: {application.recruiter.name}</Grid>
-          <Grid item>Role : {application.job.jobType}</Grid>
-          <Grid item>Salary : € {application.job.salary} per month</Grid>
+          <Grid item>{application.recruiter.name}</Grid>
+          <Grid item>Type d'offre : {application.job.jobType}</Grid>
+          <Grid item>Salaire : {application.job.salary} € par mois</Grid>
           <Grid item>
-            Duration :{" "}
+            Durée :{" "}
             {application.job.duration !== 0
-              ? `${application.job.duration} month`
+              ? `${application.job.duration} mois`
               : `Flexible`}
           </Grid>
           <Grid item>
@@ -150,10 +150,10 @@ const ApplicationTile = (props) => {
               <Chip label={skill} style={{ marginRight: "2px" }} />
             ))}
           </Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Date de demande: {appliedOn.toLocaleDateString()}</Grid>
           {application.status === "accepted" ||
           application.status === "finished" ? (
-            <Grid item>Joined On: {joinedOn.toLocaleDateString()}</Grid>
+            <Grid item>Accepté le : {joinedOn.toLocaleDateString()}</Grid>
           ) : null}
         </Grid>
         <Grid item container direction="column" xs={3}>
@@ -180,7 +180,7 @@ const ApplicationTile = (props) => {
                   setOpen(true);
                 }}
               >
-                Rate Job
+                Noter
               </Button>
             </Grid>
           ) : null}
@@ -212,7 +212,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             onClick={() => changeRating()}
           >
-            Submit
+            Soumettre
           </Button>
         </Paper>
       </Modal>
@@ -258,9 +258,9 @@ const Applications = (props) => {
       alignItems="center"
       style={{ padding: "30px", minHeight: "93vh" }}
     >
-      <Grid item>
-        <Typography variant="h2">Applications</Typography>
-      </Grid>
+      {/* <Grid item>
+        <Typography variant="h2">Demandes</Typography>
+      </Grid> */}
       <Grid
         container
         item
@@ -278,7 +278,7 @@ const Applications = (props) => {
           ))
         ) : (
           <Typography variant="h5" style={{ textAlign: "center" }}>
-            No Applications Found
+            vous n'avez postulé à aucune offre.
           </Typography>
         )}
       </Grid>

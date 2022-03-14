@@ -255,7 +255,7 @@ const Profile = (props) => {
               <Grid item>
                 <ChipInput
                   className={classes.inputBox}
-                  label="Atouts"
+                  label="Compétences"
                   variant="outlined"
                   helperText="Presser entrer pour enregistrer"
                   value={profileDetails.skills}
@@ -303,7 +303,7 @@ const Profile = (props) => {
               style={{ padding: "10px 50px", marginTop: "30px" }}
               onClick={() => handleUpdate()}
             >
-              Modifer
+              Modifier
             </Button>
           </Paper>
         </Grid>

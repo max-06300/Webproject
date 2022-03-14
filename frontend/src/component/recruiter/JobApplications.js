@@ -73,7 +73,7 @@ const FilterPopup = (props) => {
         <Grid container direction="column" alignItems="center" spacing={3}>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Application Status
+              Statut
             </Grid>
             <Grid
               container
@@ -178,7 +178,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="name">
-                    <Typography>Name</Typography>
+                    <Typography>Nom</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -234,7 +234,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="dateOfApplication">
-                    <Typography>Date of Application</Typography>
+                    <Typography>Date de la demande</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -290,7 +290,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Note</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -328,7 +328,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Appliquer
             </Button>
           </Grid>
         </Grid>
@@ -446,7 +446,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("rejected")}
           >
-            Reject
+            Refusé
           </Button>
         </Grid>
       </>
@@ -462,7 +462,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("accepted")}
           >
-            Accept
+            Accepter
           </Button>
         </Grid>
         <Grid item xs>
@@ -474,7 +474,7 @@ const ApplicationTile = (props) => {
             }}
             onClick={() => updateStatus("rejected")}
           >
-            Reject
+            Resufer
           </Button>
         </Grid>
       </>
@@ -489,7 +489,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Rejected
+            Refusé
           </Paper>
         </Grid>
       </>
@@ -504,7 +504,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Accepted
+            Accepté
           </Paper>
         </Grid>
       </>
@@ -519,7 +519,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Cancelled
+            Annulé
           </Paper>
         </Grid>
       </>
@@ -534,7 +534,7 @@ const ApplicationTile = (props) => {
               color: "#ffffff",
             }}
           >
-            Finished
+            Fini
           </Paper>
         </Grid>
       </>
@@ -574,9 +574,9 @@ const ApplicationTile = (props) => {
               readOnly
             />
           </Grid>
-          <Grid item>Applied On: {appliedOn.toLocaleDateString()}</Grid>
+          <Grid item>Date de demande {appliedOn.toLocaleDateString()}</Grid>
           <Grid item>
-            Education:{" "}
+            Ecole:{" "}
             {application.jobApplicant.education
               .map((edu) => {
                 return `${edu.institutionName} (${edu.startYear}-${
@@ -586,7 +586,7 @@ const ApplicationTile = (props) => {
               .join(", ")}
           </Grid>
           <Grid item>
-            SOP: {application.sop !== "" ? application.sop : "Not Submitted"}
+            Description: {application.sop !== "" ? application.sop : "Not Submitted"}
           </Grid>
           <Grid item>
             {application.jobApplicant.skills.map((skill) => (
@@ -595,7 +595,7 @@ const ApplicationTile = (props) => {
           </Grid>
         </Grid>
         <Grid item container direction="column" xs={3}>
-          <Grid item>
+          {/* <Grid item>
             <Button
               variant="contained"
               className={classes.statusBlock}
@@ -604,7 +604,7 @@ const ApplicationTile = (props) => {
             >
               Download Resume
             </Button>
-          </Grid>
+          </Grid> */}
           <Grid item container xs>
             {buttonSet[application.status]}
           </Grid>
@@ -628,7 +628,7 @@ const ApplicationTile = (props) => {
             style={{ padding: "10px 50px" }}
             // onClick={() => changeRating()}
           >
-            Submit
+            Soumettre
           </Button>
         </Paper>
       </Modal>
@@ -734,12 +734,12 @@ const JobApplications = (props) => {
         alignItems="center"
         style={{ padding: "30px", minHeight: "93vh" }}
       >
-        <Grid item>
+        {/* <Grid item>
           <Typography variant="h2">Applications</Typography>
-        </Grid>
+        </Grid> */}
         <Grid item>
           <IconButton onClick={() => setFilterOpen(true)}>
-            <FilterListIcon />
+            Filtrer
           </IconButton>
         </Grid>
         <Grid
@@ -760,7 +760,7 @@ const JobApplications = (props) => {
             ))
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No Applications Found
+              Aucune demande
             </Typography>
           )}
         </Grid>

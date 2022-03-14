@@ -157,16 +157,16 @@ const JobTile = (props) => {
           <Grid item>
             <Rating value={job.rating !== -1 ? job.rating : null} readOnly />
           </Grid>
-          <Grid item>Role : {job.jobType}</Grid>
-          <Grid item>Salary : € {job.salary} per month</Grid>
+          <Grid item>Métier : {job.jobType}</Grid>
+          <Grid item>Salaire : {job.salary} € par mois</Grid>
           <Grid item>
-            Duration :{" "}
-            {job.duration !== 0 ? `${job.duration} month` : `Flexible`}
+            Durée :{" "}
+            {job.duration !== 0 ? `${job.duration} mois` : `Flexible`}
           </Grid>
-          <Grid item>Date Of Posting: {postedOn.toLocaleDateString()}</Grid>
-          <Grid item>Number of Applicants: {job.maxApplicants}</Grid>
+          <Grid item>Date de publication: {postedOn.toLocaleDateString()}</Grid>
+          <Grid item>Nombre de demandes max. : {job.maxApplicants}</Grid>
           <Grid item>
-            Remaining Number of Positions:{" "}
+            Postes disponibles :{" "}
             {job.maxPositions - job.acceptedCandidates}
           </Grid>
           <Grid item>
@@ -175,15 +175,18 @@ const JobTile = (props) => {
             ))}
           </Grid>
         </Grid>
-        <Grid item container direction="column" xs={3}>
-          <Grid item xs>
+        <Grid item container direction="column" xs={3} style={{
+                display: "space-between",
+                rowGap: "25%"
+              }}>
+          <Grid item >
             <Button
               variant="contained"
               color="primary"
               className={classes.statusBlock}
               onClick={() => handleClick(`/job/applications/${job._id}`)}
             >
-              View Applications
+              Voir les demandes
             </Button>
           </Grid>
           <Grid item>
@@ -198,7 +201,7 @@ const JobTile = (props) => {
                 color: "#fff",
               }}
             >
-              Update Details
+              Modifier
             </Button>
           </Grid>
           <Grid item>
@@ -210,7 +213,7 @@ const JobTile = (props) => {
                 setOpen(true);
               }}
             >
-              Delete Job
+              Supprimer
             </Button>
           </Grid>
         </Grid>
@@ -228,7 +231,7 @@ const JobTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Are you sure?
+            Voulez-vous continuer?
           </Typography>
           <Grid container justify="center" spacing={5}>
             <Grid item>
@@ -271,7 +274,7 @@ const JobTile = (props) => {
           }}
         >
           <Typography variant="h4" style={{ marginBottom: "10px" }}>
-            Update Details
+            Modifier
           </Typography>
           <Grid
             container
@@ -281,7 +284,7 @@ const JobTile = (props) => {
           >
             <Grid item>
               <TextField
-                label="Application Deadline"
+                label="Date limite"
                 type="datetime-local"
                 value={jobDetails.deadline.substr(0, 16)}
                 onChange={(event) => {
@@ -296,7 +299,7 @@ const JobTile = (props) => {
             </Grid>
             <Grid item>
               <TextField
-                label="Maximum Number Of Applicants"
+                label="Nombre max. de demandes"
                 type="number"
                 variant="outlined"
                 value={jobDetails.maxApplicants}
@@ -309,7 +312,7 @@ const JobTile = (props) => {
             </Grid>
             <Grid item>
               <TextField
-                label="Positions Available"
+                label="Postes disponibles"
                 type="number"
                 variant="outlined"
                 value={jobDetails.maxPositions}
@@ -329,7 +332,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleJobUpdate()}
               >
-                Update
+                Modifier
               </Button>
             </Grid>
             <Grid item>
@@ -339,7 +342,7 @@ const JobTile = (props) => {
                 style={{ padding: "10px 50px" }}
                 onClick={() => handleCloseUpdate()}
               >
-                Cancel
+                Fermer
               </Button>
             </Grid>
           </Grid>
@@ -362,9 +365,9 @@ const FilterPopup = (props) => {
         }}
       >
         <Grid container direction="column" alignItems="center" spacing={3}>
-          <Grid container item alignItems="center">
+          {/* <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Job Type
+              Type d'offre
             </Grid>
             <Grid
               container
@@ -390,7 +393,7 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Full Time"
+                  label="CDI"
                 />
               </Grid>
               <Grid item>
@@ -410,14 +413,14 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Part Time"
+                  label="CDD"
                 />
               </Grid>
               <Grid item>
                 <FormControlLabel
                   control={
                     <Checkbox
-                      name="wfh"
+                      name="Stage"
                       checked={searchOptions.jobType.wfh}
                       onChange={(event) => {
                         setSearchOptions({
@@ -430,14 +433,14 @@ const FilterPopup = (props) => {
                       }}
                     />
                   }
-                  label="Work From Home"
+                  label="Stage"
                 />
               </Grid>
             </Grid>
-          </Grid>
+          </Grid> */}
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Salary
+              Salaire
             </Grid>
             <Grid item xs={9}>
               <Slider
@@ -461,12 +464,12 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Duration
+              Durée
             </Grid>
             <Grid item xs={9}>
               <TextField
                 select
-                label="Duration"
+                label="Durée"
                 variant="outlined"
                 fullWidth
                 value={searchOptions.duration}
@@ -477,7 +480,7 @@ const FilterPopup = (props) => {
                   })
                 }
               >
-                <MenuItem value="0">All</MenuItem>
+                <MenuItem value="0">Tous</MenuItem>
                 <MenuItem value="1">1</MenuItem>
                 <MenuItem value="2">2</MenuItem>
                 <MenuItem value="3">3</MenuItem>
@@ -490,7 +493,7 @@ const FilterPopup = (props) => {
           </Grid>
           <Grid container item alignItems="center">
             <Grid item xs={3}>
-              Sort
+              Trier
             </Grid>
             <Grid item container direction="row" xs={9}>
               <Grid
@@ -522,7 +525,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="salary">
-                    <Typography>Salary</Typography>
+                    <Typography>Salaire</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -578,7 +581,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="duration">
-                    <Typography>Duration</Typography>
+                    <Typography>Durée</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -634,7 +637,7 @@ const FilterPopup = (props) => {
                 </Grid>
                 <Grid item>
                   <label for="rating">
-                    <Typography>Rating</Typography>
+                    <Typography>Note</Typography>
                   </label>
                 </Grid>
                 <Grid item>
@@ -671,7 +674,7 @@ const FilterPopup = (props) => {
               style={{ padding: "10px 50px" }}
               onClick={() => getData()}
             >
-              Apply
+              Appliquer
             </Button>
           </Grid>
         </Grid>
@@ -801,12 +804,12 @@ const MyJobs = (props) => {
           justify="center"
           alignItems="center"
         >
-          <Grid item xs>
+          {/* <Grid item xs>
             <Typography variant="h2">My Jobs</Typography>
-          </Grid>
+          </Grid> */}
           <Grid item xs>
             <TextField
-              label="Search Jobs"
+              label="Rechercher..."
               value={searchOptions.query}
               onChange={(event) =>
                 setSearchOptions({
@@ -834,7 +837,7 @@ const MyJobs = (props) => {
           </Grid>
           <Grid item>
             <IconButton onClick={() => setFilterOpen(true)}>
-              <FilterListIcon />
+              Filtres
             </IconButton>
           </Grid>
         </Grid>
@@ -853,7 +856,7 @@ const MyJobs = (props) => {
             })
           ) : (
             <Typography variant="h5" style={{ textAlign: "center" }}>
-              No jobs found
+              Pas d'offres trouvées
             </Typography>
           )}
         </Grid>

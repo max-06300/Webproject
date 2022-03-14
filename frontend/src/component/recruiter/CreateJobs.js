@@ -122,10 +122,10 @@ const CreateJobs = (props) => {
               >
                 <Grid item>
                   <TextField
-                    label="Title"
+                    label="Métier"
                     value={jobDetails.title}
                     onChange={(event) =>
-                      handleInput("Poste de l'offre", event.target.value)
+                      handleInput("title", event.target.value)
                     }
                     variant="outlined"
                     fullWidth
@@ -134,9 +134,9 @@ const CreateJobs = (props) => {
                 <Grid item>
                   <ChipInput
                     className={classes.inputBox}
-                    label="Skills"
+                    label="Compétences"
                     variant="outlined"
-                    helperText="Press enter to add skills"
+                    helperText="Presser entrer pour ajouter"
                     value={jobDetails.skillsets}
                     onAdd={(chip) =>
                       setJobDetails({
@@ -158,7 +158,7 @@ const CreateJobs = (props) => {
                 <Grid item>
                   <TextField
                     select
-                    label="Job Type"
+                    label="Type d'offre"
                     variant="outlined"
                     value={jobDetails.jobType}
                     onChange={(event) => {
@@ -166,15 +166,15 @@ const CreateJobs = (props) => {
                     }}
                     fullWidth
                   >
-                    <MenuItem value="Full Time">Full Time</MenuItem>
-                    <MenuItem value="Part Time">Part Time</MenuItem>
-                    <MenuItem value="Work From Home">Work From Home</MenuItem>
+                    <MenuItem value="CDD">CDD</MenuItem>
+                    <MenuItem value="CDI">CDI</MenuItem>
+                    <MenuItem value="Stage">Stage</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item>
                   <TextField
                     select
-                    label="Duration"
+                    label="Durée"
                     variant="outlined"
                     value={jobDetails.duration}
                     onChange={(event) => {
@@ -183,17 +183,17 @@ const CreateJobs = (props) => {
                     fullWidth
                   >
                     <MenuItem value={0}>Flexible</MenuItem>
-                    <MenuItem value={1}>1 Month</MenuItem>
-                    <MenuItem value={2}>2 Months</MenuItem>
-                    <MenuItem value={3}>3 Months</MenuItem>
-                    <MenuItem value={4}>4 Months</MenuItem>
-                    <MenuItem value={5}>5 Months</MenuItem>
-                    <MenuItem value={6}>6 Months</MenuItem>
+                    <MenuItem value={1}>1 mois</MenuItem>
+                    <MenuItem value={2}>2 mois</MenuItem>
+                    <MenuItem value={3}>3 mois</MenuItem>
+                    <MenuItem value={4}>4 mois</MenuItem>
+                    <MenuItem value={5}>5 mois</MenuItem>
+                    <MenuItem value={6}>6 mois</MenuItem>
                   </TextField>
                 </Grid>
                 <Grid item>
                   <TextField
-                    label="Salary / month"
+                    label="Salaire / mois (€)"
                     type="number"
                     variant="outlined"
                     value={jobDetails.salary}
@@ -206,7 +206,7 @@ const CreateJobs = (props) => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    label="Application Deadline"
+                    label="Date fin de l'offre"
                     type="datetime-local"
                     value={jobDetails.deadline}
                     onChange={(event) => {
@@ -221,7 +221,7 @@ const CreateJobs = (props) => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    label="Maximum Number Of Applicants"
+                    label="Nombre total de demandes"
                     type="number"
                     variant="outlined"
                     value={jobDetails.maxApplicants}
@@ -234,7 +234,7 @@ const CreateJobs = (props) => {
                 </Grid>
                 <Grid item>
                   <TextField
-                    label="Positions Available"
+                    label="Nombre de postes disponibles"
                     type="number"
                     variant="outlined"
                     value={jobDetails.maxPositions}
@@ -252,7 +252,7 @@ const CreateJobs = (props) => {
                 style={{ padding: "10px 50px", marginTop: "30px" }}
                 onClick={() => handleUpdate()}
               >
-                Create Job
+                Créer
               </Button>
             </Paper>
           </Grid>
